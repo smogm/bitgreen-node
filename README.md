@@ -8,19 +8,19 @@ A Dash full node for building applications and services with Node.js. A node is 
 ### As a standalone server
 
 ```bash
-git clone https://github.com/dashevo/dashcore-node
-cd dashcore-node
+git clone https://github.com/bitgreen/bitgreen-node
+cd bitgreen-node
 npm install
-./bin/dashcore-node start
+./bin/bitgreen-node start
 ```
 
-When running the start command, it will seek for a .dashcore folder with a dashcore-node.json conf file.
+When running the start command, it will seek for a .bitgreen folder with a bitgreen-node.json conf file.
 If it doesn't exist, it will create it, with basic task to connect to dashd.
 
 Some plugins are available :
 
-- Insight-API : `./bin/dashcore-node addservice @dashevo/insight-api`
-- Insight-UI : `./bin/dashcore-node addservice @dashevo/insight-ui`
+- Insight-API : `./bin/bitgreen-node addservice @bitgreen/insight-api`
+- Insight-UI : `./bin/bitgreen-node addservice @bitgreen/insight-ui`
 
 You also might want to add these index to your dash.conf file :
 ```
@@ -32,18 +32,18 @@ You also might want to add these index to your dash.conf file :
 ### As a library
 
 ```bash
-npm install @dashevo/dashcore-node
+npm install @bitgreen/bitgreen-node
 ```
 
 ```javascript
-const dashcore = require('@dashevo/dashcore-node');
-const config = require('./dashcore-node.json');
+const bitgreen = require('@bitgreen/bitgreen-node');
+const config = require('./bitgreen-node.json');
 
-let node = dashcore.scaffold.start({ path: "", config: config });
+let node = bitgreen.scaffold.start({ path: "", config: config });
 node.on('ready', function() {
     //Dash core started
     dashd.on('tx', function(txData) {
-        let tx = new dashcore.lib.Transaction(txData);
+        let tx = new bitgreen.lib.Transaction(txData);
     });
 });
 ```
@@ -61,11 +61,11 @@ node.on('ready', function() {
 Dashcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Dashcore Node.
 
 ```bash
-dashcore-node create -d <dash-data-dir> mynode
+bitgreen-node create -d <dash-data-dir> mynode
 cd mynode
-dashcore-node install <service>
-dashcore-node install https://github.com/yourname/helloworld
-dashcore-node start
+bitgreen-node install <service>
+bitgreen-node install https://github.com/yourname/helloworld
+bitgreen-node start
 ```
 
 This will create a directory with configuration files for your node and install the necessary dependencies.
@@ -78,9 +78,9 @@ For more information about (and developing) services, please see the [Service Do
 
 There are several add-on services available to extend the functionality of Bitcore:
 
-- [Insight API](https://github.com/dashevo/insight-api/tree/master)
-- [Insight UI](https://github.com/dashevo/insight-ui/tree/master)
-- [Bitcore Wallet Service](https://github.com/dashevo/dashcore-wallet-service/tree/master)
+- [Insight API](https://github.com/bitgreen/insight-api/tree/master)
+- [Insight UI](https://github.com/bitgreen/insight-ui/tree/master)
+- [Bitcore Wallet Service](https://github.com/bitgreen/bitgreen-wallet-service/tree/master)
 
 ## Documentation
 
@@ -98,13 +98,13 @@ There are several add-on services available to extend the functionality of Bitco
 
 Prerequisite : Having a dashd node already runing `dashd --daemon`.
 
-Dashcore-node : `git clone https://github.com/dashevo/dashcore-node -b develop`
-Insight-api (optional) : `git clone https://github.com/dashevo/insight-api -b develop`
-Insight-UI (optional) : `git clone https://github.com/dashevo/insight-ui -b develop`
+Dashcore-node : `git clone https://github.com/bitgreen/bitgreen-node -b develop`
+Insight-api (optional) : `git clone https://github.com/bitgreen/insight-api -b develop`
+Insight-UI (optional) : `git clone https://github.com/bitgreen/insight-ui -b develop`
 
 Install them :
 ```
-cd dashcore-node && npm install \
+cd bitgreen-node && npm install \
  && cd ../insight-ui && npm install \
  && cd ../insight-api && npm install && cd ..
 ```
@@ -115,16 +115,16 @@ npm link ../insight-api
 npm link ../insight-ui
 ```
 
-Start with `./bin/dashcore-node start` to first generate a ~/.dashcore/dashcore-node.json file.
-Append this file with `"@dashevo/insight-ui"` and `"@dashevo/insight-api"` in the services array.
+Start with `./bin/bitgreen-node start` to first generate a ~/.bitgreen/bitgreen-node.json file.
+Append this file with `"@bitgreen/insight-ui"` and `"@bitgreen/insight-api"` in the services array.
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/dashevo/dashcore/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitgreen/bitgreen/blob/master/CONTRIBUTING.md) file.
 
 ## License
 
-Code released under [the MIT license](https://github.com/dashevo/dashcore-node/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/bitgreen/bitgreen-node/blob/master/LICENSE).
 
 Copyright 2016-2018 Dash Core Group, Inc.
 

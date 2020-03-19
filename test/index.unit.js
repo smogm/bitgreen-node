@@ -3,10 +3,10 @@
 var should = require('chai').should();
 
 describe('Index Exports', function() {
-  it('will export dashcore-lib', function() {
-    var dashcore = require('../');
-    should.exist(dashcore.lib);
-    should.exist(dashcore.lib.Transaction);
-    should.exist(dashcore.lib.Block);
+  it('will export bitgreen-lib', function() {
+    var bitgreen = require('../');
+    should.exist(bitgreen.lib);
+    should.exist(bitgreen.lib.Transaction);
+    should.exist(bitgreen.lib.Block);
   });
 });

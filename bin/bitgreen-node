@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var bitgreen = require('../lib/cli/bitgreen');
+bitgreen();
